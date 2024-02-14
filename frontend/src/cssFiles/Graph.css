@@ -13,7 +13,6 @@
   font-size: 1.2rem;
 }
 
-/* Responsive adjustments for tablets */
 @media screen and (max-width: 768px) {
   .graph-container {
     margin: 10px;
@@ -22,20 +21,19 @@
   }
 
   .graph-title {
-    font-size: 1rem; /* Slightly smaller font size for tablets */
+    font-size: 1rem;
   }
 }
 
-/* Responsive adjustments for mobile phones */
 @media screen and (max-width: 480px) {
   .graph-container {
     margin: 5px;
     padding: 5px;
     box-shadow: 3px 1.5px 3px rgba(0, 0, 0, 0.746);
-    border-radius: 4px; /* Smaller border radius for a more mobile-friendly design */
+    border-radius: 4px;
   }
 
   .graph-title {
-    font-size: 0.9rem; /* Smaller font size for mobile devices */
+    font-size: 0.9rem;
   }
 }

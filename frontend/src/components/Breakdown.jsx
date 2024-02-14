@@ -1,7 +1,7 @@
 import React from 'react'
 import useFetch from '../customeHooks/useFetch';
 import Graph from './Graph'
-import '../cssFiles/Breakdown.css'; // Assuming your CSS file is named Breakdown.css
+import '../cssFiles/Breakdown.css'; 
 export default function Breakdown() {
   const { data, isLoading, error } = useFetch('http://localhost:8080/Transactions/SumByCategory');
   return (
