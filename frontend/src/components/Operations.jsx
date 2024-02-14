@@ -33,7 +33,7 @@ export default function Operations({ handleBalance }) {
 
     return (
         <div className='Operations-container' >
-            <input type="text" name="amount" value={formData.amount} placeholder="Amount" onChange={handleChange} />
+            <input type="number" name="amount" value={formData.amount} placeholder="Amount" onChange={handleChange} />
             <input type="text" name="vendor" value={formData.vendor} placeholder="Vendor" onChange={handleChange} />
             <input type="text" name="category" value={formData.category} placeholder="Category" onChange={handleChange} />
             <button className='Deposit' onClick={handleDeposit} disabled={isLoading}>Deposit</button>
