@@ -1,0 +1,14 @@
+.home-page-container {
+    background-image: url('../Assest/homeimg.jpg');
+    background-size: cover; /* Cover the entire area of the div */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    height: 800px;
+  }
+ .Text-container{
+    padding: 3%;
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }

@@ -1,0 +1,16 @@
+.graph-container {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #e0e0e0; /* Light grey border for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow:12px 6px 12px rgba(0, 0, 0, 0.746); /* Subtle shadow for depth */
+}
+
+.graph-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Dark grey for text */
+  font-size: 1.2rem; /* Larger font size for visibility */
+}
+
+/* Additional styles for responsiveness and beautification can be added as needed */
