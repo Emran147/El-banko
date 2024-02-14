@@ -1,8 +1,8 @@
 .home-page-container {
     background-image: url('../Assest/homeimg.jpg');
-    background-size: cover; /* Cover the entire area of the div */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
     height: 800px;
   }
  .Text-container{

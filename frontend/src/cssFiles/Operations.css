@@ -1,18 +1,16 @@
-/* Operations.css */
 
 .Operations-container {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   padding-top:1%;
-  background-color: #f5f5f5; /* Light gray background */
+  background-color: #0818a5; 
   border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.916);
-  max-width: 400px; /* Adjust based on preference */
-   margin: auto; /* Center the form on the page */
+  box-shadow: 0 2px 24px #ccff00;
+  max-width: 400px; 
+   margin: auto; 
    margin-top: 5%;
   }
   
@@ -21,7 +19,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: calc(100% - 22px); /* Adjust width based on padding */
+    width: calc(100% - 22px); 
   }
   
   .Operations-container button {
@@ -37,22 +35,22 @@
   }
   
   .Deposit {
-    background-color: #4CAF50; /* Green background */
+    background-color: #4CAF50; 
     color: white;
   }
   
   .Deposit:hover {
-    background-color: #45a049; /* Darker green */
+    background-color: #45a049; 
   }
   
   .Withdraw {
-    background-color: #f44336; /* Red background */
+    background-color: #f44336;
     color: white;
-    margin-top: 5px; /* Additional space from the Deposit button */
+    margin-top: 5px; 
   }
   
   .Withdraw:hover {
-    background-color: #da3830; /* Darker red */
+    background-color: #da3830; 
   }
   
   .Operations-container p {

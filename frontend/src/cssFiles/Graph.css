@@ -1,16 +1,41 @@
 .graph-container {
   margin: 20px;
   padding: 15px;
-  border: 1px solid #e0e0e0; /* Light grey border for the container */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow:12px 6px 12px rgba(0, 0, 0, 0.746); /* Subtle shadow for depth */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 12px 6px 12px rgba(0, 0, 0, 0.746);
 }
 
 .graph-title {
   text-align: center;
   margin-bottom: 20px;
-  color: #333; /* Dark grey for text */
-  font-size: 1.2rem; /* Larger font size for visibility */
+  color: #333;
+  font-size: 1.2rem;
 }
 
-/* Additional styles for responsiveness and beautification can be added as needed */
+/* Responsive adjustments for tablets */
+@media screen and (max-width: 768px) {
+  .graph-container {
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 6px 3px 6px rgba(0, 0, 0, 0.746);
+  }
+
+  .graph-title {
+    font-size: 1rem; /* Slightly smaller font size for tablets */
+  }
+}
+
+/* Responsive adjustments for mobile phones */
+@media screen and (max-width: 480px) {
+  .graph-container {
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 3px 1.5px 3px rgba(0, 0, 0, 0.746);
+    border-radius: 4px; /* Smaller border radius for a more mobile-friendly design */
+  }
+
+  .graph-title {
+    font-size: 0.9rem; /* Smaller font size for mobile devices */
+  }
+}
