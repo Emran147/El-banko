@@ -16,6 +16,12 @@
   padding: 0;
   color: #ccff00;
 }
+.negative-baclance{
+  margin: 0;
+  padding: 0;
+  color: #ff0000;
+}
+
 
 .Nav-items {
   list-style: none;

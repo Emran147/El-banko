@@ -6,7 +6,7 @@ const InputField = ({ name, value, placeholder, onChange }) => (
     <input type={name === 'amount' ? 'number' : 'text'} name={name} value={value} placeholder={placeholder} onChange={onChange} />
 );
 
-const Operations = ({ handleBalance }) => {
+const Operations = ({ handleBalance , balance}) => {
     const [formData, setFormData] = useState({
         amount: '',
         vendor: '',
@@ -23,6 +23,11 @@ const Operations = ({ handleBalance }) => {
     const handleSubmit = (isDeposit) => {
         if (validateInputs()) {
             const updatedFormData = isDeposit ? formData : { ...formData, amount: formData.amount * -1 };
+            if(!isDeposit&&!isThereBalance(updatedFormData))
+            {
+                alert('too much bro , we are not your parents')
+                return
+            }
             sendPostRequest(updatedFormData);
             handleBalance(updatedFormData.amount);
             const newForm = {
@@ -35,6 +40,12 @@ const Operations = ({ handleBalance }) => {
             alert('Please fill in all fields.');
         }
     };
+
+    const  isThereBalance = function(updatedFormData){
+        if(updatedFormData.amount+balance<-500)
+        return false
+        else return true
+    }
 
     const validateInputs = () => {
         return Object.values(formData).every(value => value.trim() !== '');

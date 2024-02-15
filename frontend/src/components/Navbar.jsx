@@ -9,13 +9,12 @@ export default function Navbar({balance}) {
     <Link to="/">
     <img src={logo} width={300}  alt="Home" />
     </Link>  
-    <h1 className='balance'> {balance}  ₪</h1> 
+    <h1 className={balance>0?'balance':'negative-baclance'}> {balance}  ₪</h1> 
     <ul className='Nav-items'>
     <li><Link to='/Transactions'>Transictions </Link></li>
     <li><Link to='/Breakdown'>BreakDown </Link></li>
     <li><Link to='/Operations'>Operations </Link></li>
     <li><Link to='/'>Home Page </Link></li>
-
     </ul>
   
 </div>
