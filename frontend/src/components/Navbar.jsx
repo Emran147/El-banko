@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logo from '../Assest/Logo1.png'
+import logo from '../Assest/Logo2.png'
 import '../cssFiles/Navbar.css'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
