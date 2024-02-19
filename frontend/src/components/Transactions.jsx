@@ -21,7 +21,7 @@ export default function Transactions() {
   };
 
   return (
-    <div>
+    <div className='the-container'>
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
       { transactions && (

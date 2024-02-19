@@ -16,48 +16,53 @@ const Transaction = require('../model/Transaction')
   //   }
   // })
     
-  router.get("/Transactions/SumByCategory", async function(req, res) {
+  const computeSumsByCategory = (transactions) => {
+    const sumByCategoryDeposits = {}
+    const sumByCategoryWithdrawals = {};
+
+    transactions.forEach(transaction => {
+        const categoryGroup = transaction.amount > 0 ? sumByCategoryDeposits : sumByCategoryWithdrawals
+        if (!categoryGroup[transaction.category]) {
+            categoryGroup[transaction.category] = 0
+        }
+        categoryGroup[transaction.category] += transaction.amount
+    })
+
+    return { sumByCategoryDeposits, sumByCategoryWithdrawals }
+}
+
+const convertSumObjectToArray = (sumObject) => {
+    return Object.keys(sumObject).map(category => ({
+        category: category,
+        totalAmount: sumObject[category]
+    }))
+}
+
+router.get("/Transactions/SumByCategory", async (req, res) => {
     try {
-        Transaction.find({}).then(function(transactions) {
-            const sumByCategoryDeposits = {};
-            const sumByCategoryWithdrawals = {};
+        const transactions = await Transaction.find({})
+        const { sumByCategoryDeposits, sumByCategoryWithdrawals } = computeSumsByCategory(transactions)
+        console.log('thats what i send ' ,sumByCategoryDeposits )
+        const depositsArray = convertSumObjectToArray(sumByCategoryDeposits)
+        console.log('thats what i recive ' ,depositsArray )
+        const withdrawalsArray = convertSumObjectToArray(sumByCategoryWithdrawals)
 
-            transactions.forEach(transaction => {
-                const categoryGroup = transaction.amount > 0 ? sumByCategoryDeposits : sumByCategoryWithdrawals;
-                if (!categoryGroup[transaction.category]) {
-                    categoryGroup[transaction.category] = 0;
-                }
-                categoryGroup[transaction.category] += transaction.amount;
-            });
-
-            const depositsArray = Object.keys(sumByCategoryDeposits).map(category => ({
-                category: category,
-                totalAmount: sumByCategoryDeposits[category]
-            }));
-
-            const withdrawalsArray = Object.keys(sumByCategoryWithdrawals).map(category => ({
-                category: category,
-                totalAmount: sumByCategoryWithdrawals[category]
-            }));
-
-            res.send({
-                deposits: depositsArray,
-                withdrawals: withdrawalsArray
-            });
-        });
+        res.send({
+            deposits: depositsArray,
+            withdrawals: withdrawalsArray
+        })
     } catch (error) {
-        console.error("Failed to fetch transactions:", error);
-        res.status(500).send({ error: 'Failed to fetch transactions' });
+        console.error("Failed to fetch transactions:", error)
+        res.status(500).send({ error: 'Failed to fetch transactions' })
     }
 })
-
   router.get("/Transactions/", function(req, res) {
     try {
       Transaction.find({}).then(function (transaction) {
       res.send(transaction)
       })
     } catch (error) {
-      res.status(500).send({ error: 'Failed to fetch weather data' });
+      res.status(500).send({ error: 'Failed to fetch  data' });
     }
   })
 
@@ -69,8 +74,8 @@ router.post('/Transaction', function (req, res) {
         res.status(201).json(savedTransaction)
     })
     .catch((err) => {
-        console.error('Error saving expense:', err)
-        res.status(500).send('Error saving expense')
+        console.error('Error saving :', err)
+        res.status(500).send('Error saving ')
     })
 })
 
@@ -86,8 +91,8 @@ router.delete('/Transactions/:_id', async function (req, res) {
       return res.send(`Transaction  ${TransactiontoDelete} deleted`)
 
   } catch (err) {
-      console.error('Error updating expense:', err)
-      return res.status(500).send('Error updating expense')
+      console.error('Error updating :', err)
+      return res.status(500).send('Error updating ')
   }
 })
 

@@ -5,6 +5,7 @@ import Transactions from './components/Transactions';
 import Operations from './components/Operations'
 import Breakdown from './components/Breakdown'
 import { useState } from 'react';
+import '../src/App.css'
 
 function App() {
   const [balance,setBalance]=useState(2000)
@@ -14,10 +15,16 @@ function App() {
     setBalance(tempBalance)
   }
 
+  
+  const [ isDark , setIsDark ] = useState(false)
+
+  const handleDarkMode = function(dark){
+     setIsDark(dark)
+  }
   return (
-    <>
+    <div className={isDark?'Dark-Mode':'Normal-Mode'}>
     <Router>
-    <Navbar balance={balance}/>
+    <Navbar balance={balance} handleDarkMode={handleDarkMode}  isDark={isDark}/>
     <Routes>
       <Route path='/' element={<Home/> }/>
       <Route path='/Breakdown' element={<Breakdown/> }/>
@@ -26,7 +33,7 @@ function App() {
 
     </Routes>
     </Router>
-    </>
+    </div>
   );
 }
 
